@@ -19,8 +19,6 @@ spec:
         - name: {{CF_REPO_NAME}}
           image: {{BUILD_IMAGE}}
           imagePullPolicy: Always
-            - name: FOO
-              value: bar
           ports:
           - name: web
             containerPort: 8080
