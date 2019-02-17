@@ -1,7 +1,17 @@
 import Vue from 'vue'
 import App from './App.vue'
+import axios from 'axios'
 
 new Vue({
   el: '#app',
-  render: h => h(App)
+  data () {
+    return {
+      info: null
+    }
+  },
+  mounted () {
+    axios
+        .get('/api/test')
+        .then(response => (this.info = response.data))
+  }
 })
