@@ -5,7 +5,7 @@ items:
 - apiVersion: extensions/v1beta1
   kind: Ingress
   metadata:
-    name: staging-ingress
+    name: frontend-ingress
     annotations:
       kubernetes.io/ingress.class: "nginx"
   spec:
@@ -21,4 +21,3 @@ items:
             serviceName: {{CF_REPO_NAME}}
             servicePort: 80
           path: /
-
