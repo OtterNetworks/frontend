@@ -46,6 +46,13 @@ steps:
     namespace: ${{NAMESPACE}}
     file_path: ./k8s/namespace.yaml
 
+  SecretController:
+    title: Copy secrets from default namespace
+    image: codefresh/cf-deploy-kubernetes
+    commands:
+      - kubectl config use-context $K8S_CLUSTER
+      - bash -c 'kubectl get secret image-pull-secret --export -o yaml | kubectl apply --namespace=${{NAMESPACE}} -f -'
+
   RunningConfigmapScript:
     title: Running Configmap
     type: deploy

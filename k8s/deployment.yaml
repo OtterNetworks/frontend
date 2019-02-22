@@ -15,6 +15,8 @@ spec:
         app: {{CF_REPO_NAME}}
         tier: web
     spec:
+      imagePullSecrets:
+        - name: image-pull-secret
       containers:
         - name: {{CF_REPO_NAME}}
           image: {{BUILD_IMAGE}}
