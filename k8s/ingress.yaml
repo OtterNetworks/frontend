@@ -21,3 +21,4 @@ items:
             serviceName: {{CF_REPO_NAME}}
             servicePort: 80
           path: /
+
