@@ -16,9 +16,9 @@
     </div>
 
     <div>
-      <input type="radio" v-model="type" id="bug" />
+      <input type="radio" v-model="type" value="bug" id="bug" />
       <label for="bug">Bug </label>
-      <input type="radio" v-model="type" id="feature"/>
+      <input type="radio" v-model="type" value="feature" id="feature"/>
       <label for="feature">Feature </label>
     </div>
 
@@ -35,20 +35,22 @@ export default {
     return {
       name: '',
       status: '',
-      type: ''
+      type: 'feature',
+      isBug: false,
+      isFeature: true
     }
   },
   methods: {
     Save() {
+      if (this.isBug) this.type = 'bug'
+      if (this.isFeature) this.type = 'feature'
       const data = {
         name: this.name,
         status: this.status,
         type: this.type
       }
 
-      console.log(data)
-
-      axios.post('/api/items', data, Headers={'Content-Type': 'application/json'})
+      axios.post('/api/items', data)
         .then(response => console.log(JSON.stringify(response.data)))
     }
   }
