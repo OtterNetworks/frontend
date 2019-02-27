@@ -1,6 +1,9 @@
 <template>
   <div>
     <div>
+      ID: {{id}}
+    </div>
+    <div>
       <label for="name">Name:</label>
       <input type="text" v-model="name" id="name" />
     </div>
@@ -33,6 +36,7 @@ import axios from 'axios'
 export default {
   data() {
     return {
+      id: null,
       name: '',
       status: '',
       type: 'feature',
@@ -51,11 +55,16 @@ export default {
       }
 
       axios.post('/api/items', data)
-        .then(response => console.log(JSON.stringify(response.data)))
         .catch(error => {
+            if (error.status == 409) {
+              this.id = error.response.id
+            }
             console.log(JSON.stringify(error))
           }
         )
+        .then(response => {
+          this.id = response.id
+        })
     }
   }
 }
