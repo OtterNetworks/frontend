@@ -54,16 +54,18 @@ export default {
         type: this.type
       }
 
+      const self = this
+
       axios.post('/api/items', data)
         .catch(error => {
             if (error.status == 409) {
-              this.id = error.response.id
+              self.id = error.response.id
             }
             console.log(JSON.stringify(error))
           }
         )
         .then(response => {
-          this.id = response.id
+          self.id = response.id
         })
     }
   }
