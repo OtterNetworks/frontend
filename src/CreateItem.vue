@@ -52,6 +52,10 @@ export default {
 
       axios.post('/api/items', data)
         .then(response => console.log(JSON.stringify(response.data)))
+        .catch(error => {
+            console.log(JSON.stringify(error))
+          }
+        )
     }
   }
 }
