@@ -19,10 +19,10 @@
     </div>
 
     <div>
-      <input type="radio" v-model="type" value="bug" id="bug" />
-      <label for="bug">Bug </label>
       <input type="radio" v-model="type" value="feature" id="feature"/>
       <label for="feature">Feature </label>
+      <input type="radio" v-model="type" value="bug" id="bug" />
+      <label for="bug">Bug </label>
     </div>
 
     <div>
