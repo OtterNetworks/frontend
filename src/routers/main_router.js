@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 
 import CreateItem from '../CreateItem.vue'
+import Auth from '../Auth.vue'
 
 
 Vue.use(Router)
@@ -9,17 +10,22 @@ Vue.use(Router)
 const routes = [
   {
     path: '/',
-    name: 'home',
-    component: CreateItem
+    name: 'default',
+    component: Auth
   },
   {
     path: '/items',
     name: 'items',
     component: CreateItem
   },
+  {
+    path: '/auth',
+    name: 'auth',
+    component: Auth
+  },
 
   // if nothing matched, go home
-  { path: '*', redirect: '/items' }
+  { path: '*', redirect: '/' }
 ]
 
 export default new Router({
