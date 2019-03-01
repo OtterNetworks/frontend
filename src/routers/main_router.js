@@ -24,11 +24,6 @@ const routes = [
     name: 'auth',
     component: Auth
   },
-  {
-    path: '/oauth_callback',
-    name: 'callback',
-    component: Callback
-  },
 
   // if nothing matched, go home
   { path: '*', redirect: '/' }
