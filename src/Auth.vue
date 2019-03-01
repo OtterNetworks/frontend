@@ -7,6 +7,7 @@
 export default {
   data() {
     return {
+      response: ''
     }
   },
   methods: {
@@ -14,7 +15,13 @@ export default {
       if (this.$auth.isAuthenticated()) {
         this.$auth.logout()
       }
-      this.$auth.authenticate(provider)
+
+      this.response = null
+
+      var this_ = this;
+      this.$auth.authenticate(provider).then(function (authResponse) {
+        window.location = window.location.origin
+      })
     }
   }
 }

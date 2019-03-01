@@ -3,6 +3,7 @@ import Router from 'vue-router'
 
 import CreateItem from '../CreateItem.vue'
 import Auth from '../Auth.vue'
+import Callback from '../Callback.vue'
 
 
 Vue.use(Router)
@@ -11,7 +12,7 @@ const routes = [
   {
     path: '/',
     name: 'default',
-    component: Auth
+    component: CreateItem
   },
   {
     path: '/items',
@@ -23,13 +24,30 @@ const routes = [
     name: 'auth',
     component: Auth
   },
+  {
+    path: '/oauth_callback',
+    name: 'callback',
+    component: Callback
+  },
 
   // if nothing matched, go home
   { path: '*', redirect: '/' }
 ]
 
-export default new Router({
+let router = new Router({
   mode: 'history',
   base: __dirname,
   routes
 })
+
+router.beforeEach((to, from, next) => {
+  const token = localStorage.getItem('token')
+  if (!token && to.name != 'auth') {
+    next('auth')
+  }
+  else {
+    next()
+  }
+})
+
+export default router
