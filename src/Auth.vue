@@ -12,38 +12,6 @@ export default {
     }
   },
   methods: {
-    authLogin: function () {
-      var this_ = this;
-
-      if (this.$auth.isAuthenticated()) {
-        this.$auth.logout()  
-      }
-
-      this.$auth.login(user).then(function (response) {
-        this_.response = response
-      })
-    },
-
-    authRegister: function () {
-      var this_ = this;
-
-      if (this.$auth.isAuthenticated()) {
-        this.$auth.logout()  
-      }
-      
-      this.$auth.register(user).then(function (response) {
-        this_.response = response
-      })
-    },
-
-    authLogout: function() {
-      this.$auth.logout().then(() => {
-        if (!this.$auth.isAuthenticated()) {
-          this.response = null
-        }
-      })
-    },
-
     auth: function(provider) {
       if (this.$auth.isAuthenticated()) {
         this.$auth.logout()
@@ -66,5 +34,5 @@ export default {
 }
 </script>
 <style>
-  .button--google     { color: #ea4335; border: 1px solid #ea4335; }
+  .button--google { color: #ea4335; border: 1px solid #ea4335; }
 </style>
