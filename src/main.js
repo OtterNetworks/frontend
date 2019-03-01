@@ -13,8 +13,8 @@ Vue.use(VueAuthenticate, {
   providers: {
     google: {
       clientId: '275173569279-g8if65mjf5i8ih34ofjauf97fhnahg52.apps.googleusercontent.com',
-      redirectUri: 'http://google-auth-platform.otterly.cc/oauth_callback',
-      url: '/api/users'
+      redirectUri: 'http://google-auth-platform.otterly.cc/',
+      url: '/api/auth'
     }
   }
 })
