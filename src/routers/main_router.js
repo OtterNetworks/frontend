@@ -40,14 +40,5 @@ let router = new Router({
   routes
 })
 
-router.beforeEach((to, from, next) => {
-  const token = localStorage.getItem('token')
-  if (!token && to.name != 'auth') {
-    next('auth')
-  }
-  else {
-    next()
-  }
-})
 
 export default router
