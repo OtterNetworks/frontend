@@ -22,7 +22,7 @@ export default {
       localStorage.setItem('token', queryStringObj['code'])
       window.close()
     })
-    .catch(error => console.log(error))
+    .catch(error => window.close())
   },
   beforeDestroy() {
     clearTimeout(this.timeoutFn)
