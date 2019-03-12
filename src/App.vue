@@ -2,6 +2,7 @@
   <div id="app">
     <h1>{{ msg }}</h1>
     <router-link to="/items">Create items</router-link>
+    <router-link to="/auth">Google auth</router-link>
     <router-view class="view"></router-view>
   </div>
 </template>
